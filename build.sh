@@ -21,7 +21,7 @@ elif [ "$1" = "int-test" ] && [ $# -eq 1 ]; then
 elif [ "$1" = "acceptance-test" ] && [ $# -eq 1 ]; then
   npm install
 
-  npm run test
+  npm run acceptance-test
 elif [ "$1" = "deploy" ] && [ $# -eq 2 ]; then
   STAGE=$2
 
