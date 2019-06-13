@@ -5,3 +5,4 @@ phases:
     commands: 
       - chmod +x build.sh
       - ./build.sh deploy test
+      - ./build.sh acceptance-test

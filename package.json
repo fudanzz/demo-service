@@ -4,12 +4,22 @@
   "description": "",
   "main": "handler.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "env TEST_ROOT=https://003xdquq6e.execute-api.cn-north-1.amazonaws.com.cn/dev ./node_modules/.bin/mocha tests/test_cases --reporter spec --retries 3 --timeout 10000"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "chai": "^4.1.2",
+    "cheerio": "^1.0.0-rc.2",
+    "lodash": "^4.17.10",
+    "mocha": "^4.0.1",
     "serverless": "^1.45.0",
     "serverless-plugin-aws-cn-principal": "0.0.2"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.5",
+    "co": "^4.6.0",
+    "superagent": "^5.0.8",
+    "superagent-promise": "^1.1.0"
   }
 }

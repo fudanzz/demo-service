@@ -62,10 +62,10 @@ provider:
 
 functions:
   hello:
-    handler: handler.hello
+    handler: functions/helloworld.handler
     events:
       - http:
-          path: /
+          path: /hello
           method: get
 
 #    The following are a few example events you can configure
