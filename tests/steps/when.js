@@ -82,6 +82,12 @@ let we_invoke_hello_world = co.wrap(function* () {
   return res;
 });
 
+let we_invoke_get_restaurants = co.wrap(function* () {
+  let res = yield viaHttp('restaurants', 'GET');
+  return res;
+});
+
 module.exports = {
-  we_invoke_hello_world
+  we_invoke_hello_world,
+  we_invoke_get_restaurants
 };

@@ -4,8 +4,8 @@
   "description": "",
   "main": "handler.js",
   "scripts": {
-    "test": "env TEST_ROOT=https://003xdquq6e.execute-api.cn-north-1.amazonaws.com.cn/dev ./node_modules/.bin/mocha tests/test_cases --reporter spec --retries 1 --timeout 10000",
-    "acceptance-test": "env TEST_ROOT=https://m5clzvclcd.execute-api.cn-north-1.amazonaws.com.cn/test ./node_modules/.bin/mocha tests/test_cases --reporter spec --retries 1 --timeout 10000"
+    "test": "env TEST_ROOT=https://6pascnfdth.execute-api.cn-north-1.amazonaws.com.cn/dev ./node_modules/.bin/mocha tests/test_cases --reporter spec --timeout 10000",
+    "acceptance-test": "env TEST_ROOT=https://m5clzvclcd.execute-api.cn-north-1.amazonaws.com.cn/test ./node_modules/.bin/mocha tests/test_cases --reporter spec --timeout 10000"
   },
   "author": "",
   "license": "ISC",
@@ -15,7 +15,8 @@
     "lodash": "^4.17.10",
     "mocha": "^4.0.1",
     "serverless": "^1.45.0",
-    "serverless-plugin-aws-cn-principal": "0.0.2"
+    "serverless-plugin-aws-cn-principal": "0.0.2",
+    "serverless-pseudo-parameters": "^2.4.0"
   },
   "dependencies": {
     "bluebird": "^3.5.5",
