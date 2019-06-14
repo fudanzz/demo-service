@@ -1,4 +1,4 @@
-service: hello-world 
+service: demo 
 
 plugins:
   - serverless-plugin-aws-cn-principal

@@ -6,7 +6,8 @@ const _       = require('lodash');
 const co      = require('co');
 const Promise = require("bluebird");
 const http    = require('superagent-promise')(require('superagent'), Promise);
-
+const aws4    = require('aws4');
+const URL     = require('url');
 
 let respondFrom = function (httpRes) {
   let contentType = _.get(httpRes, 'headers.content-type', 'application/json');
@@ -42,6 +43,8 @@ let signHttpRequest = (url, httpReq) => {
 }
 
 let viaHttp = co.wrap(function* (relPath, method, opts) {
+
+  
   let root = process.env.TEST_ROOT;
   let url = `${root}/${relPath}`;
   console.log(`invoking via HTTP ${method} ${url}`);
@@ -88,7 +91,7 @@ let we_invoke_hello_world = co.wrap(function* () {
 });
 
 let we_invoke_get_restaurants = co.wrap(function* () {
-  let res = yield viaHttp('restaurants', 'GET');
+  let res = yield viaHttp('restaurants', 'GET', { iam_auth: true });
   return res;
 });
 
