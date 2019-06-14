@@ -77,6 +77,11 @@ let viaHttp = co.wrap(function* (relPath, method, opts) {
   }
 })
 
+let we_invoke_get_pets = co.wrap(function* () {
+  let res = yield viaHttp('pets', 'GET');
+  return res;
+});
+
 let we_invoke_hello_world = co.wrap(function* () {
   let res = yield viaHttp('hello', 'GET');
   return res;
@@ -89,5 +94,6 @@ let we_invoke_get_restaurants = co.wrap(function* () {
 
 module.exports = {
   we_invoke_hello_world,
-  we_invoke_get_restaurants
+  we_invoke_get_restaurants,
+  we_invoke_get_pets
 };

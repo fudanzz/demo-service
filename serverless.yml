@@ -28,3 +28,9 @@ functions:
       - http:
           path: /restaurants
           method: get
+  get-pets:
+    handler: functions/get-pets.handler
+    events: 
+      - http:
+          path: /pets
+          method: get
