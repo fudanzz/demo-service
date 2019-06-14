@@ -4,8 +4,8 @@
   "description": "",
   "main": "handler.js",
   "scripts": {
-    "test": "env TEST_ROOT=https://003xdquq6e.execute-api.cn-north-1.amazonaws.com.cn/dev ./node_modules/.bin/mocha tests/test_cases --reporter spec --retries 3 --timeout 10000",
-    "acceptance-test": "env TEST_ROOT=https://m5clzvclcd.execute-api.cn-north-1.amazonaws.com.cn/test ./node_modules/.bin/mocha tests/test_cases --reporter spec --retries 3 --timeout 10000"
+    "test": "env TEST_ROOT=https://003xdquq6e.execute-api.cn-north-1.amazonaws.com.cn/dev ./node_modules/.bin/mocha tests/test_cases --reporter spec --retries 1 --timeout 10000",
+    "acceptance-test": "env TEST_ROOT=https://m5clzvclcd.execute-api.cn-north-1.amazonaws.com.cn/test ./node_modules/.bin/mocha tests/test_cases --reporter spec --retries 1 --timeout 10000"
   },
   "author": "",
   "license": "ISC",
