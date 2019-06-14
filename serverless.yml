@@ -28,19 +28,3 @@ functions:
       - http:
           path: /restaurants
           method: get
-
-resources:
-  Resources:
-    restaurantsTable:
-      Type: AWS::DynamoDB::Table
-      Properties:
-        TableName: restaurants
-        AttributeDefinitions:
-          - AttributeName: name
-            AttributeType: S
-        KeySchema:
-          - AttributeName: name
-            KeyType: HASH
-        ProvisionedThroughput:
-          ReadCapacityUnits: 1
-          WriteCapacityUnits: 1
