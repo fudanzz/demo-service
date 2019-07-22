@@ -13,6 +13,15 @@ provider:
     - Effect: Allow
       Action: dynamodb:scan
       Resource: arn:aws-cn:dynamodb:#{AWS::Region}:#{AWS::AccountId}:table/restaurants
+    - Effect: Allow
+      Action: kinesis:putRecord
+      Resource: arn:aws-cn:kinesis:#{AWS::Region}:#{AWS::AccountId}:stream/order-events
+    - Effect: Allow
+      Action: sns:publish
+      Resource: 
+        - arn:aws-cn:sns:#{AWS::Region}:#{AWS::AccountId}:restaurant-notification
+        - arn:aws-cn:sns:#{AWS::Region}:#{AWS::AccountId}:user-notification
+      
 
 functions:
   hello-world:
@@ -22,15 +31,57 @@ functions:
           path: /hello
           method: get
 
+  auth-user:
+    handler: functions/auth-user.handler
+    events: 
+      - http: 
+          path: /auth
+          method: post
+          private: true
+
   get-restaurants:
     handler: functions/get-restaurants.handler
     events:
       - http:
           path: /restaurants
           method: get
+
   get-pets:
     handler: functions/get-pets.handler
     events: 
       - http:
           path: /pets
           method: get
+
+  place-order:
+    handler: functions/place-order.handler
+    events:
+      - http:
+          path: /orders
+          method: post
+          authorizer: custom-authorizer
+
+  notify-restaurant:
+    handler: functions/notify-restaurant.handler
+    events: 
+      - stream: 
+          arn: arn:aws-cn:kinesis:#{AWS::Region}:#{AWS::AccountId}:stream/order-events
+
+  accetp-order: 
+    handler: functions/accept-order.handler
+    events: 
+      - http: 
+          path: /orders/accept
+          method: post
+          authorizer: custom-authorizer
+
+  notify-user: 
+    handler: functions/notify-user.handler
+    events: 
+      - stream: 
+          arn: arn:aws-cn:kinesis:#{AWS::Region}:#{AWS::AccountId}:stream/order-events
+
+  custom-authorizer: 
+    handler: functions/authorizer.handler
+
+
