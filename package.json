@@ -14,7 +14,7 @@
     "cheerio": "^1.0.0-rc.2",
     "lodash": "^4.17.11",
     "mocha": "^4.0.1",
-    "serverless": "^1.45.0",
+    "serverless": "^1.83.3",
     "serverless-plugin-aws-cn-principal": "0.0.2",
     "serverless-pseudo-parameters": "^2.4.0"
   },
